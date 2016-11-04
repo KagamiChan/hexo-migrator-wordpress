@@ -97,7 +97,7 @@ hexo.extend.migrator.register('wordpress', function(args, callback){
         };
 
         if (type === 'page') data.layout = 'page';
-        if (slug) data.slug = slug;
+        data.slug =  date + '_' + title || decodeURI(slug);
         if (comment === 'closed') data.comments = false;
         if (categories.length && type === 'post') data.categories = categories;
         if (tags.length && type === 'post') data.tags = tags;
